@@ -1,0 +1,101 @@
+$unlocker-image-size: 30px;
+
+.story, section.aspect {
+  @include flex-row;
+  padding: $large-space;
+
+  color: white;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    @include flex-grow(1);
+  }
+
+  .unlocker {
+    width: $unlocker-image-size; height: $unlocker-image-size;
+
+    img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.story {
+
+  .unlockers {
+    @include flex-row;
+    @include flex-direction(row-reverse);
+  }
+
+  .unlocker:not(:first-child) {
+    margin-right: -8px;
+  }
+
+}
+
+section.aspect {
+
+  &:first-child {
+    padding: 2 * $large-space;
+    text-align: center;
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+}
+
+section.unlock {
+  position: relative;
+
+  .background {
+    position: absolute;
+    overflow: hidden;
+
+    top: $large-space;
+    bottom: 0;
+    left: $large-space;
+    right: $large-space;
+
+    padding: $large-space;
+    padding-top: 3 * $large-space;
+    background: white;
+    pointer-events: none;
+
+    box-shadow: 0 0 2px rgba(black, 0.1);
+
+    @extend .html;
+    font-size: 12px;
+
+    h1, h2, p {
+      filter: blur(3px);
+      opacity: 0.4;
+    }
+  }
+
+  .content {
+    position: relative;
+    padding: $large-space + $small-space;
+    text-align: center;
+
+    .label {
+      display: block;
+      font-size: 12px;
+    }
+    .buttons {
+      padding: $large-space;
+    }
+    button:not(:last-child) {
+      margin-right: $small-space;
+    }
+  }
+
+}
+
+@each $aspect, $color in $colors {
+  .aspect-#{$aspect} {
+    background-color: $color;
+  }
+}

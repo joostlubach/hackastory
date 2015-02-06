@@ -1,8 +1,10 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
+    "lodash": "latest",
     "angular": "latest",
     "angular-ui-router": "latest",
+    "angular-animate": "latest",
     "bootstrap-sass-official": "latest"
   }
 }

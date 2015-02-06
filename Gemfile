@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower-rails'
 gem 'angular-rails-templates'
 
+gem 'squeel'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

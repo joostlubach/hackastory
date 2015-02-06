@@ -10,6 +10,9 @@ elger = User.new(name: 'Elger', password: 'strikje')
 joost = User.new(name: 'Joost', password: 'gay')
 
 story = Story.new
-story.aspects << TextAspect.new(aspect: :what, text: '180 died', order: 1, unlocked_by: elger)
-story.aspects << TextAspect.new(aspect: :where, text: 'At a Hackathon', order: 2, unlocked_by: joost)
+story.aspects << TextAspect.new(aspect: :what, text: 'Huge party', order: 1)
+story.aspects << TextAspect.new(aspect: :who, text: 'At a hackathon', order: 2, unlocker: elger)
+story.aspects << TextAspect.new(aspect: :where, text: 'Amsterdam', order: 3, unlocker: joost)
+story.aspects << TextAspect.new(aspect: :when, text: 'Friday, February 6th')
+story.aspects << TextAspect.new(aspect: :why, text: 'Because everyone felt like it')
 story.save!

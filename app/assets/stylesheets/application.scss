@@ -1,6 +1,47 @@
 @import "compass";
 @import "compass/reset";
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,latin-ext);
 @import "variables";
 @import "styles";
-@import "elements/*"
+@import "elements/*";
+
+ui-view {
+  min-height: 65px;
+}
+
+.ui-view-container {
+  position: relative;
+}
+
+ui-view.ng-enter, ui-view.ng-leave {
+  position: absolute;
+  width: 100%;
+  @include transition(all 300ms ease-out);
+}
+
+ui-view.ng-enter {
+  left: 100%;
+}
+ui-view.ng-enter-active {
+  left: 0;
+}
+ui-view.back.ng-enter {
+  left: -100%;
+}
+ui-view.back.ng-enter-active {
+  left: 0;
+}
+
+ui-view.ng-leave {
+  left: 0;
+}
+ui-view.ng-leave-active {
+  left: -100%;
+}
+ui-view.back.ng-leave {
+  left: 0;
+}
+ui-view.back.ng-leave-active {
+  left: 100%;
+}

@@ -1,0 +1,13 @@
+<ul class="story-list">
+  <li class="story aspect-{{ story.unlocked_aspects[0].aspect }}" ng-repeat="story in stories" ui-sref="story({id: story.id})">
+
+    <h2>{{ story.unlocked_aspects[0].text }}</h2>
+
+    <div class="unlockers">
+      <figure class="unlocker" ng-repeat="unlocker in story.unlockers">
+        <img ng-src="{{ unlocker.avatar }}" alt="{{ unlocker.name }}"/>
+      </figure>
+    </div>
+
+  </li>
+</ul>

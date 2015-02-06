@@ -1,10 +1,36 @@
-<article>
-  <section ng-repeat="aspect in story.aspects" class="{{aspect.aspect}}">
-    <span class="label unlocked">{{ aspect.aspect.toUpperCase() }}</span>
-    <h2>{{ aspect.text }}</h2>
+<section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
+  <h2>{{ aspect.text }}</h2>
 
-    <figure class="unlocker">
-      <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
-    </figure>
-  </section>
-</article>
+  <figure class="unlocker" ng-show="aspect.unlocker">
+    <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
+  </figure>
+</section>
+
+<section class="unlock" ng-show="story.locked_aspects.length">
+
+  <div class="background">
+    <h1>{{ story.aspects[0].text }}</h1>
+    <h2>Subtitle</h2>
+
+    <p>
+      Yagshemash! Democracy is very different in US and A from Kazakhstan. In America, woman CAN vote, but horse - CANNOT!
+    </p>
+
+    <p>
+      It is three in the morning, and I am in the nest of Jews. They have cleverly shifted their shapes; one of them has taken the form of a little old woman. You can barely see her horns! She has tried to poison me already. These rats are very clever.
+    </p>
+  </div>
+
+  <div class="content">
+
+    <span class="label">Unlock this story:</span>
+
+    <div class="buttons">
+      <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-click="unlock(aspect)">
+        {{ aspect.aspect.toUpperCase() }}
+      </button>
+    </div>
+
+  </div>
+
+</section>

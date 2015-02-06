@@ -6,7 +6,14 @@ angular.module('hackastory', [
   'hackastory-controllers'
 ])
 
+.run ($window, $state) ->
+
+  if !$window.document.cookie.match(/current_user_id=\d+/)
+    $state.go 'login'
+
 .config ($stateProvider, $urlRouterProvider) ->
+
+  $urlRouterProvider.otherwise '/stories'
 
   $stateProvider
     .state 'login',

@@ -8,6 +8,8 @@ angular.module 'hackastory-controllers'
     $scope.story = response.data.story
 
   $scope.unlock = (aspect) ->
+    return if $scope.story.unlocked_by_me
+
     aspect.loading = true
     $http.post("/stories/#{storyId}/#{aspect.aspect}/unlock")
       .then (response) ->
@@ -16,5 +18,6 @@ angular.module 'hackastory-controllers'
           $scope.story.locked_aspects,
           (aspect) -> aspect.aspect == response.data.aspect.aspect
         )
+        $scope.story.unlocked_by_me = true
       .finally ->
         aspect.loading = false

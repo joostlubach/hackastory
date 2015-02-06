@@ -1,3 +1,12 @@
+article.story {
+  min-height: 100vh;
+  @include flex-column(stretch);
+
+  section.unlock {
+    @include flex-grow(1);
+  }
+}
+
 section.aspect {
   @include flex-row;
   padding: $small-space $large-space;
@@ -35,6 +44,7 @@ section.aspect {
 
 section.unlock {
   position: relative;
+  color: white;
 
   .background {
     position: absolute;
@@ -47,16 +57,17 @@ section.unlock {
 
     padding: $large-space;
     padding-top: 3 * $large-space;
-    background: white;
+    color: white;
+    background: #222;
     pointer-events: none;
 
     box-shadow: 0 0 2px rgba(black, 0.1);
 
     @extend .html;
-    font-size: 12px;
+    font-size: 14px;
 
     h1, h2, p {
-      filter: blur(3px);
+      @include filter(blur(3px));
       opacity: 0.4;
     }
   }
@@ -80,6 +91,15 @@ section.unlock {
     }
   }
 
+}
+
+article.story.unlocked-by-me section.unlock {
+  .content {
+    opacity: 0.4;
+  }
+  button {
+    background-color: #777;
+  }
 }
 
 @each $aspect, $color in $colors {

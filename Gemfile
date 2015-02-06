@@ -15,6 +15,7 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 
 gem 'squeel'
+gem 'smarter_csv'
 
 group :development, :test do
   gem 'byebug'

@@ -2,7 +2,7 @@ class CreateAspects < ActiveRecord::Migration
   def change
     create_table :aspects do |t|
       t.references :story, index: true
-      t.string :aspect, length: 5
+      t.string :aspect, length: 10
       t.string :type, length: 50
       t.integer :order
 

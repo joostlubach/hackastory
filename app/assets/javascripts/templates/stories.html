@@ -4,7 +4,7 @@
     <section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
       <h2>{{ aspect.text }}</h2>
 
-      <figure class="unlocker" ng-show="aspect.unlocker">
+      <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
         <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
       </figure>
     </section>

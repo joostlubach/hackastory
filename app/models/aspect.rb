@@ -6,7 +6,6 @@ class Aspect < ActiveRecord::Base
 
   validates_presence_of :story
   validates_uniqueness_of :aspect, scope: [:story_id]
-  validates_uniqueness_of :order, scope: [:story_id]
 
   scope :ordered,  ->{ order(:order) }
   scope :unlocked, -> { ordered.joins{unlock.outer}.where{ (order == 1) | (unlock.id != nil) } }
@@ -22,6 +21,10 @@ class Aspect < ActiveRecord::Base
 
   def locked
     !unlocked
+  end
+
+  def unlocked_by(user)
+    unlockers.include?(user)
   end
 
 end

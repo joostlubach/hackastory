@@ -22,10 +22,7 @@ nienke = User.create(name: 'Nienke')
 sebastiaan = User.create(name: 'Sebastiaan')
 tim = User.create(name: 'Tim')
 
-story = Story.new
-story.aspects << TextAspect.new(aspect: :what, text: 'Huge party', order: 1)
-story.aspects << TextAspect.new(aspect: :who, text: 'At a hackathon', order: 2, unlocker: elger)
-story.aspects << TextAspect.new(aspect: :where, text: 'Amsterdam', order: 3, unlocker: joost)
-story.aspects << TextAspect.new(aspect: :when, text: 'Friday, February 6th')
-story.aspects << TextAspect.new(aspect: :why, text: 'Because everyone felt like it')
-story.save!
+data = SmarterCSV.process(Rails.root + 'db/seeds/stories.csv')
+data.each do |row|
+  story = Story.create_from_aspects!(row)
+end

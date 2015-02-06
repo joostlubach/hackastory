@@ -10,9 +10,10 @@ class ApplicationController < ActionController::Base
     if cookies[:current_user_id]
       User.find cookies[:current_user_id]
     else
-      raise NotLoggedIn
+      User.find_by_name('Joost')
     end
   end
+  helper_method :current_user
 
   protected
 

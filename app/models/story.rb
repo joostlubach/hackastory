@@ -14,11 +14,19 @@ class Story < ActiveRecord::Base
     aspect
   end
 
+  def unlocked
+    aspects.all? &:unlocked
+  end
+
+  def locked
+    !unlocked
+  end
+
   def self.create_from_aspects!(aspects)
     story = Story.create
     %i(what when where who why).each do |aspect|
       if content = aspects[aspect]
-        TextAspect.create!(:story => story, :aspect => aspect.to_s, :text_content => content)
+        TextAspect.create!(:story => story, :aspect => aspect, :text_content => content.capitalize)
       end
     end
 

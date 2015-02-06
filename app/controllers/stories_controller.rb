@@ -10,7 +10,12 @@ class StoriesController < ApplicationController
 
   def unlock
     @story = Story.find(params[:id])
-    @aspect = @story.unlock(params[:aspect], current_user)
+
+    if @story.unlocked_by(current_user)
+      raise BadRequest, "story already unlocked"
+    else
+      @aspect = @story.unlock(params[:aspect], current_user)
+    end
   end
 
 end

@@ -1,4 +1,4 @@
-json.id story.id
+json.(story, :id, :unlocked, :title, :content, :image_url, :source_url)
 
 json.unlocked_by_me story.unlocked_by(current_user)
 

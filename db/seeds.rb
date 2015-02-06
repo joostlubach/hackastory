@@ -1,3 +1,5 @@
+require 'net/http'
+
 andre = User.create(name: 'Andre')
 bart = User.create(name: 'Bart')
 dries = User.create(name: 'Dries')
@@ -25,4 +27,20 @@ tim = User.create(name: 'Tim')
 data = SmarterCSV.process(Rails.root + 'db/seeds/stories.csv')
 data.each do |row|
   story = Story.create_from_aspects!(row)
+
+  story.title = row[:title].capitalize
+  story.content = row[:story].capitalize
+  story.image_url = row[:picture]
+  story.source_url = row[:source]
+  story.save!
+
 end
+
+
+story = Story.first
+story.unlock :what, andre
+story.unlock :where, bart
+story.unlock :who, dries
+story.unlock :when, elger
+# story.unlock :why, emiel
+story.save!

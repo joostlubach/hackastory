@@ -4,8 +4,15 @@ angular.module 'hackastory-controllers'
 
   storyId = $stateParams.id
 
+  setTemplate = ->
+    $scope.template = if $scope.story.unlocked
+      'unlocked-story.html'
+    else
+      'locked-story.html'
+
   $http.get("/stories/#{storyId}").then (response) ->
     $scope.story = response.data.story
+    setTemplate()
 
   $scope.unlock = (aspect) ->
     return if $scope.story.unlocked_by_me
@@ -19,5 +26,7 @@ angular.module 'hackastory-controllers'
           (aspect) -> aspect.aspect == response.data.aspect.aspect
         )
         $scope.story.unlocked_by_me = true
+        $scope.story.unlocked = response.data.story.unlocked
+        setTemplate()
       .finally ->
         aspect.loading = false

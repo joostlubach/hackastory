@@ -8,8 +8,11 @@ angular.module('hackastory', [
 
 .config ($stateProvider, $urlRouterProvider) ->
 
-  $urlRouterProvider
-    .otherwise '/stories'
+  $stateProvider
+    .state 'login',
+      url: '/login'
+      templateUrl: 'login.html',
+      controller: 'LoginController'
 
   $stateProvider
     .state 'stories',

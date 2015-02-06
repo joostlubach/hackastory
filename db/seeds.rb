@@ -1,13 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-elger = User.new(name: 'Elger')
-joost = User.new(name: 'Joost')
+andre = User.create(name: 'Andre')
+bart = User.create(name: 'Bart')
+dries = User.create(name: 'Dries')
+elger = User.create(name: 'Elger')
+emiel = User.create(name: 'Emiel')
+frans = User.create(name: 'Frans')
+gemma = User.create(name: 'Gemma')
+gregg = User.create(name: 'Gregg')
+hay = User.create(name: 'Hay')
+heinze = User.create(name: 'Heinze')
+herve = User.create(name: 'Herve')
+inge = User.create(name: 'Inge')
+jeroen = User.create(name: 'Jeroen')
+joel = User.create(name: 'Joel')
+joost = User.create(name: 'Joost')
+lotte = User.create(name: 'Lotte')
+marcel = User.create(name: 'Marcel')
+martijn = User.create(name: 'Martijn')
+mireille = User.create(name: 'Mireille')
+niall = User.create(name: 'Niall')
+nienke = User.create(name: 'Nienke')
+sebastiaan = User.create(name: 'Sebastiaan')
+tim = User.create(name: 'Tim')
 
 story = Story.new
 story.aspects << TextAspect.new(aspect: :what, text: 'Huge party', order: 1)

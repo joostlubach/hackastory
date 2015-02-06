@@ -1,0 +1,11 @@
+<div id="login-screen">
+  <ul class="user-list">
+    <li class="user" ng-repeat="user in users" ng-click="logIn(user)">
+
+      <figure class="user">
+        <img ng-src="{{ user.avatar }}" alt="{{ user.name }}"/>
+      </figure>
+
+    </li>
+  </ul>
+</div>

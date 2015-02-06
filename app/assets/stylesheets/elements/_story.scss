@@ -1,47 +1,33 @@
-$unlocker-image-size: 30px;
-
-.story, section.aspect {
+section.aspect {
   @include flex-row;
-  padding: $large-space;
+  padding: $small-space $large-space;
 
   color: white;
 
   h2 {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     @include flex-grow(1);
   }
 
   .unlocker {
-    width: $unlocker-image-size; height: $unlocker-image-size;
+    width: 30px; height: 30px;
+    opacity: 0.4;
 
     img {
       width: 100%; height: 100%;
       border-radius: 50%;
     }
   }
-}
-
-.story {
-
-  .unlockers {
-    @include flex-row;
-    @include flex-direction(row-reverse);
-  }
-
-  .unlocker:not(:first-child) {
-    margin-right: -8px;
-  }
-
-}
-
-section.aspect {
 
   &:first-child {
-    padding: 2 * $large-space;
-    text-align: center;
+    @include align-items(flex-start);
+    padding: $large-space;
+
+    min-height: 80px;
     h2 {
-      font-size: 36px;
+      font-size: 24px;
+      font-weight: 600;
     }
   }
 
@@ -80,12 +66,14 @@ section.unlock {
     padding: $large-space + $small-space;
     text-align: center;
 
-    .label {
+    > .label {
       display: block;
       font-size: 12px;
     }
     .buttons {
       padding: $large-space;
+      @include flex-row;
+      @include justify-content(center);
     }
     button:not(:last-child) {
       margin-right: $small-space;

@@ -1,6 +1,11 @@
 .story-list {
+  padding: $large-space;
+
   li {
-    margin-bottom: $small-space;
+    &:not(:last-child) {
+      margin-bottom: $large-space;
+    }
     cursor: pointer;
   }
+
 }

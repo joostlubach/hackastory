@@ -26,8 +26,9 @@
     <span class="label">Unlock this story:</span>
 
     <div class="buttons">
-      <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-click="unlock(aspect)">
-        {{ aspect.aspect.toUpperCase() }}
+      <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-class="{loading: aspect.loading}" ng-click="unlock(aspect)">
+        <div class="label">{{ aspect.aspect.toUpperCase() }}</div>
+        <div class="spinner"></div>
       </button>
     </div>
 

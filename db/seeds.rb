@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-elger = User.new(name: 'Elger', password: 'strikje')
-joost = User.new(name: 'Joost', password: 'gay')
+elger = User.new(name: 'Elger')
+joost = User.new(name: 'Joost')
 
 story = Story.new
 story.aspects << TextAspect.new(aspect: :what, text: 'Huge party', order: 1)

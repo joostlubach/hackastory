@@ -1,0 +1,29 @@
+$small-space: 10px;
+$large-space: 30px;
+
+$red:    #e0483e;
+$orange: #f7941d;
+$green:  #22c064;
+$blue:   #1c57ff;
+$purple: #ff1caa;
+
+$colors: (
+  what: $red,
+  where: $orange,
+  who: $green,
+  when: $blue,
+  why: $purple
+);
+
+
+@mixin flex-column($align-items: center) {
+  @include display-flex;
+  @include flex-direction(column);
+  @include align-items($align-items);
+}
+
+@mixin flex-row($align-items: center) {
+  @include display-flex;
+  @include flex-direction(row);
+  @include align-items($align-items);
+}

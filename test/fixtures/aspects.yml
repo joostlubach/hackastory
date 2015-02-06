@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  story_id: 
+  aspect: MyString
+  content_type: MyString
+  content: MyText
+
+two:
+  story_id: 
+  aspect: MyString
+  content_type: MyString
+  content: MyText

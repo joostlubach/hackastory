@@ -1,0 +1,10 @@
+<article>
+  <section ng-repeat="aspect in story.aspects" class="{{aspect.aspect}}">
+    <span class="label unlocked">{{ aspect.aspect.toUpperCase() }}</span>
+    <h2>{{ aspect.text }}</h2>
+
+    <figure class="unlocker">
+      <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
+    </figure>
+  </section>
+</article>

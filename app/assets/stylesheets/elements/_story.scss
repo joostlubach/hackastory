@@ -1,9 +1,11 @@
 article.story {
-  min-height: 100vh;
-  @include flex-column(stretch);
-
   section.unlock {
     @include flex-grow(1);
+  }
+
+  .locked-story {
+    @include flex-column(stretch);
+    min-height: 100vh;
   }
 }
 
@@ -17,6 +19,8 @@ section.aspect {
     font-size: 16px;
     font-weight: 400;
     @include flex-grow(1);
+    line-height: 1.2em;
+    margin-right: $large-space;
   }
 
   .unlocker {

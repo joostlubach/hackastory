@@ -1,35 +1,36 @@
-<section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
-  <h2>{{ aspect.text }}</h2>
+<div class="locked-story">
+  <section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
+    <h2>{{ aspect.text }}</h2>
 
-  <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
-    <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
-  </figure>
-</section>
+    <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
+      <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
+    </figure>
+  </section>
 
-<section class="unlock" ng-show="story.locked_aspects.length">
+  <section class="unlock" ng-show="story.locked_aspects.length">
 
-  <div class="background">
-    <h1>{{ story.unlocked_aspects[0].text }}</h1>
-    <h2>Subtitle</h2>
+    <div class="background">
+      <h1>{{ story.unlocked_aspects[0].text }}</h1>
 
-    <p>This is my country of Kazakhstan. It locate between Tajikistan, and Kyrgyzstan, and assholes Uzbekistan.</p>
-    <p>Yagshemash! In US and A, if you want to marry a girl, you cannot just go to her father's house and swap her for 15 gallons of insecticide. Before American woman will allow you in her vazhïn, you must do something called dating.</p>
-    <p>In Kazakhstan, the favorite hobbies are disco dancing, archery, rape, and table tennis.</p>
-    <p>It is three in the morning, and I am in the nest of Jews. They have cleverly shifted their shapes; one of them has taken the form of a little old woman. You can barely see her horns! She has tried to poison me already. These rats are very clever.</p>
-    <p>Sometime my sister, she show her vazhïn to my brother Bilo and say "You will never get this, you will never get it, la la la la la la!" He behind his cage. He cries, he cries and everybody laughs. She goes "You never get this." But one time he break cage and he "get this" and then we all laugh. High five!</p>
-  </div>
-
-  <div class="content">
-
-    <span class="label">Unlock this story:</span>
-
-    <div class="buttons">
-      <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-class="{loading: aspect.loading}" ng-click="unlock(aspect)">
-        <div class="label">{{ aspect.aspect.toUpperCase() }}</div>
-        <div class="spinner"></div>
-      </button>
+      <p>This is my country of Kazakhstan. It locate between Tajikistan, and Kyrgyzstan, and assholes Uzbekistan.</p>
+      <p>Yagshemash! In US and A, if you want to marry a girl, you cannot just go to her father's house and swap her for 15 gallons of insecticide. Before American woman will allow you in her vazhïn, you must do something called dating.</p>
+      <p>In Kazakhstan, the favorite hobbies are disco dancing, archery, rape, and table tennis.</p>
+      <p>It is three in the morning, and I am in the nest of Jews. They have cleverly shifted their shapes; one of them has taken the form of a little old woman. You can barely see her horns! She has tried to poison me already. These rats are very clever.</p>
+      <p>Sometime my sister, she show her vazhïn to my brother Bilo and say "You will never get this, you will never get it, la la la la la la!" He behind his cage. He cries, he cries and everybody laughs. She goes "You never get this." But one time he break cage and he "get this" and then we all laugh. High five!</p>
     </div>
 
-  </div>
+    <div class="content">
 
-</section>
+      <span class="label">Unlock this story:</span>
+
+      <div class="buttons">
+        <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-class="{loading: aspect.loading}" ng-click="unlock(aspect)">
+          <div class="label">{{ aspect.aspect.toUpperCase() }}</div>
+          <div class="spinner"></div>
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+</div>

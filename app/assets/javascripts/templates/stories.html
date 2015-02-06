@@ -1,13 +1,5 @@
 <ul class="story-list">
-  <li class="story aspect-{{ story.unlocked_aspects[0].aspect }}" ng-repeat="story in stories" ui-sref="story({id: story.id})">
 
-    <section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
-      <h2>{{ aspect.text }}</h2>
+  <li class="story aspect-{{ story.unlocked_aspects[0].aspect }}" ng-repeat="story in stories" ui-sref="story({id: story.id})" ng-class="{'unlocked': story.unlocked}" ng-include="templateFor(story)"></li>
 
-      <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
-        <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
-      </figure>
-    </section>
-
-  </li>
 </ul>

@@ -8,4 +8,25 @@
     cursor: pointer;
   }
 
+  li.unlocked {
+    position: relative;
+    background: black;
+
+    padding-top: 9/16 * 100%;
+
+    .picture {
+      @include fill;
+      opacity: 0.3;
+    }
+    h2 {
+      @include fill;
+      padding: $large-space;
+      line-height: 1.2em;
+
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
 }

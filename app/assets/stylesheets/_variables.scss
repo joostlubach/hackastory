@@ -27,3 +27,9 @@ $colors: (
   @include flex-direction(row);
   @include align-items($align-items);
 }
+
+
+@mixin fill {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}

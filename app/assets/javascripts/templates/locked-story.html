@@ -18,7 +18,7 @@
     </figure>
   </section>
 
-  <section class="unlock" ng-show="story.locked_aspects.length">
+  <section class="unlock">
 
     <div class="background">
       <h1>{{ story.unlocked_aspects[0].text }}</h1>
@@ -38,6 +38,12 @@
         <button ng-repeat="aspect in story.locked_aspects" class="aspect aspect-{{aspect.aspect}}" ng-class="{loading: aspect.loading}" ng-click="unlock(aspect)">
           <div class="label">{{ aspect.aspect.toUpperCase() }}</div>
           <div class="spinner"></div>
+        </button>
+      </div>
+
+      <div ng-show="story.unlocked">
+        <button class="unlocked" ng-click="setTemplate()">
+          Click to read view article
         </button>
       </div>
 

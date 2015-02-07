@@ -17,17 +17,28 @@ class StoriesController < ApplicationController
       @aspect = @story.unlock(params[:aspect], current_user)
     end
 
-    send_notification(
+    notification = {
       :type   => :unlock,
       :user   => {
         :name => current_user.name,
         :avatar => "/assets/users/#{current_user.name.downcase.dasherize}.jpg"
-      },
-      :aspect => {
+      }
+    }
+
+    if @aspect.is_a?(TextAspect)
+      notification[:aspect] = {
         :aspect => @aspect.aspect,
         :text   => @aspect.text
       }
-    )
+    end
+    if @aspect.is_a?(ImageAspect)
+      notification[:aspect] = {
+        :aspect    => @aspect.aspect,
+        :image_url => @aspect.image_url
+      }
+    end
+
+    send_notification notification
   end
 
   def create_badge

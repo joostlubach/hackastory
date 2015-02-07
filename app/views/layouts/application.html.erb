@@ -28,9 +28,12 @@
         <figure class="avatar" title="{{ notification.user.name }}">
           <img ng-src="{{ notification.user.avatar }}" alt="{{ notification.user.name }}" />
         </figure>
-        <span class="callout aspect-{{ notification.aspect.aspect }}" ng-show="notification.aspect.text">
-          {{ notification.aspect.text }}
-        </span>
+        <div class="callout aspect-{{ notification.aspect.aspect }}">
+          <span ng-show="notification.aspect.text">{{ notification.aspect.text }}</span>
+          <figure class="aspect-picture" ng-show="notification.aspect.image_url">
+            <img ng-src="{{ notification.aspect.image_url }}"/>
+          </figure>
+        </div>
       </li>
     </ul>
   </div>

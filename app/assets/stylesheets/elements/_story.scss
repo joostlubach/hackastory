@@ -10,8 +10,24 @@ article.story {
 }
 
 section.aspect {
-  @include flex-row;
-  padding: $small-space $large-space;
+
+  .content {
+    padding: $small-space $large-space;
+    @include flex-row;
+
+    h2 {
+      @include flex-shrink(1);
+    }
+    .badge, .unlocker {
+      @include flex-shrink(0);
+    }
+  }
+
+  .aspect-picture {
+    margin: #{-$small-space} #{$small-space} #{-$small-space} #{-$large-space};
+    opacity: 0.5;
+    img { display: block; }
+  }
 
   color: white;
 
@@ -41,11 +57,40 @@ section.aspect {
       margin-bottom: $large-space;
     }
 
+    .aspect-picture {
+      margin: -$large-space;
+    }
+
     min-height: 80px;
     h2 {
       text-align: center;
       font-size: 24px;
       font-weight: 600;
+      margin-right: 0;
+    }
+  }
+
+  .content .badge {
+    margin: -34px 0 -26px 0;
+    width: 64px; height: 64px;
+
+    transform: rotate(30deg);
+
+    img { border-radius: 100%; }
+  }
+
+  footer.badges {
+    padding: $small-space $large-space;
+    background: rgba(black, 0.1);
+    @include flex-row;
+    @include justify-content(space-between);
+
+    .badge {
+      @include flex-column;
+    }
+
+    .label {
+      font-size: 12px;
     }
   }
 
@@ -103,10 +148,11 @@ section.unlock {
 }
 
 article.story.unlocked-by-me section.unlock {
-  .content {
+  .content .label {
     opacity: 0.4;
   }
   button.aspect {
+    opacity: 0.4;
     background-color: #777;
   }
 }

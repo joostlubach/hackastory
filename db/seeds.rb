@@ -28,12 +28,11 @@ data = SmarterCSV.process(Rails.root + 'db/seeds/stories.csv')
 data.each do |row|
   story = Story.create_from_aspects!(row)
 
-  story.title = row[:title].capitalize
-  story.content = row[:story].capitalize
+  story.title = row[:title]
+  story.content = row[:story]
   story.image_url = row[:picture]
-  story.source_url = row[:source]
+  story.happened_on = row[:date]
   story.save!
-
 end
 
 
@@ -41,6 +40,5 @@ story = Story.first
 story.unlock :what, andre
 story.unlock :where, bart
 story.unlock :who, dries
-story.unlock :when, elger
-# story.unlock :why, emiel
+story.unlock :why, emiel
 story.save!

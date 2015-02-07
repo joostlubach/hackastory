@@ -1,6 +1,11 @@
 class ImageAspect < Aspect
 
-  validates_presence_of :image_data
+  def image_url
+    text_content
+  end
+  def image_url=(url)
+    self.text_content = url
+  end
 
   def image_data
     binary_content

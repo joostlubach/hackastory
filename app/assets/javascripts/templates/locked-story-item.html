@@ -1,7 +1,23 @@
-<section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
-  <h2>{{ aspect.text }}</h2>
+<section class="aspect aspect-{{story.unlocked_aspects[0].aspect}}">
+  <div class="aspect-picture" ng-show="story.unlocked_aspects[0].image_url">
+    <img ng-src="{{ story.unlocked_aspects[0].image_url }}" />
+  </div>
+  <h2 ng-show="story.unlocked_aspects[0].text">{{ story.unlocked_aspects[0].text }}</h2>
+</section>
 
-  <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
-    <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
-  </figure>
+<section ng-repeat="aspect in story.unlocked_aspects.slice(1)" class="aspect aspect-{{aspect.aspect}}">
+  <div class="content">
+    <div class="aspect-picture" ng-show="aspect.image_url">
+      <img ng-src="{{ aspect.image_url }}" />
+    </div>
+    <h2 ng-show="aspect.text">{{ aspect.text }}</h2>
+
+    <div class="badge" ng-show="aspect.badge" title="{{ badgeCaption(aspect.badge) }}">
+      <img ng-src="/assets/{{ aspect.badge }}.png" />
+    </div>
+
+    <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">
+      <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}"/>
+    </figure>
+  </div>
 </section>

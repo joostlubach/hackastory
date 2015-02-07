@@ -7,10 +7,28 @@ angular.module('hackastory', [
   'hackastory-controllers'
 ])
 
-.run ($window, $state) ->
+.run ($window, $state, $rootScope) ->
 
   if !$window.document.cookie.match(/current_user_id=\d+/)
     $state.go 'login'
+
+  $rootScope.badges = [{
+    name: 'meh',
+    caption: 'Meh...'
+  }, {
+    name: 'so-sad',
+    caption: 'So sad'
+  }, {
+    name: 'pfff',
+    caption: 'Pfff!'
+  }, {
+    name: 'omg',
+    caption: 'OMG!'
+  }]
+
+  $rootScope.badgeCaption = (name) ->
+    badge = _.find($rootScope.badges, (b) -> b.name == name)
+    badge.caption
 
 .config ($stateProvider, $urlRouterProvider, $httpProvider) ->
 

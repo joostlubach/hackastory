@@ -18,7 +18,7 @@
   </figure>
 
   <h1>{{ story.title }}</h1>
-  <p class="content">
-    {{ story.content }}
-  </p>
+  <div class="content" ng-bind-html="story.content">
+  </div>
+
 </div>

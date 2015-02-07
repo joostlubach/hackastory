@@ -6,6 +6,8 @@ class CreateAspects < ActiveRecord::Migration
       t.string :type, length: 50
       t.integer :order
 
+      t.string :badge, limit: 10
+
       t.text   :text_content
       t.binary :binary_content
 

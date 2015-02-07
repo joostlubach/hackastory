@@ -29,3 +29,12 @@ angular.module 'hackastory-controllers'
         $scope.story.unlocked = response.data.story.unlocked
       .finally ->
         aspect.loading = false
+
+  $scope.addBadge = (aspect, badge) ->
+
+    $http.post("/stories/#{storyId}/#{aspect.aspect}/#{badge.name}")
+      .then (response) ->
+        badge.loading = true
+        aspect.badge = badge.name
+      .finally ->
+        badge.loading = false

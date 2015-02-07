@@ -5,6 +5,7 @@ class CreateStories < ActiveRecord::Migration
       t.text :content
       t.string :image_url
       t.string :source_url
+      t.date :happened_on
 
       t.timestamps null: false
     end

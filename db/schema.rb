@@ -13,29 +13,28 @@
 
 ActiveRecord::Schema.define(version: 20150206134520) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "aspects", force: :cascade do |t|
     t.integer  "story_id"
     t.string   "aspect"
     t.string   "type"
     t.integer  "order"
+    t.string   "badge",          limit: 10
     t.text     "text_content"
     t.binary   "binary_content"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "aspects", ["story_id"], name: "index_aspects_on_story_id", using: :btree
+  add_index "aspects", ["story_id"], name: "index_aspects_on_story_id"
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "image_url"
     t.string   "source_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "happened_on"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "unlocks", force: :cascade do |t|
@@ -45,8 +44,8 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "unlocks", ["aspect_id"], name: "index_unlocks_on_aspect_id", using: :btree
-  add_index "unlocks", ["user_id"], name: "index_unlocks_on_user_id", using: :btree
+  add_index "unlocks", ["aspect_id"], name: "index_unlocks_on_aspect_id"
+  add_index "unlocks", ["user_id"], name: "index_unlocks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -55,7 +54,4 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "aspects", "stories"
-  add_foreign_key "unlocks", "aspects"
-  add_foreign_key "unlocks", "users"
 end

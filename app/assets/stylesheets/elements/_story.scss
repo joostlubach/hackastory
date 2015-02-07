@@ -52,6 +52,14 @@ section.aspect {
     display: block; // Undo flex.
     padding: $large-space;
 
+    .aspect-icon {
+      text-align: center;
+      margin: #{-$small-space} 0 0;
+      img {
+        width: 25px; height: 25px;
+      }
+    }
+
     header {
       margin: -$large-space;
       margin-bottom: $large-space;

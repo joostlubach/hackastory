@@ -1,4 +1,8 @@
 <section class="aspect aspect-{{story.unlocked_aspects[0].aspect}}">
+  <figure class="aspect-icon">
+    <img ng-hide="story.unlocked_aspects[0].image_url" ng-src="/assets/{{ story.unlocked_aspects[0].aspect }}.png" />
+  </figure>
+
   <div class="aspect-picture" ng-show="story.unlocked_aspects[0].image_url">
     <img ng-src="{{ story.unlocked_aspects[0].image_url }}" />
   </div>

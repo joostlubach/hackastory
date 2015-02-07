@@ -24,6 +24,7 @@ module Hackastory
     config.assets.paths << 'vendor/assets/bower_components'
     config.assets.paths << 'vendor/assets/bower_components/bootstrap-sass-official/assets/fonts/bootstrap'
     config.assets.paths << 'vendor/assets/bower_components/ionic/release/fonts'
-    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+    config.assets.paths << 'app/assets/sounds'
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|wav|mp3)$)
   end
 end

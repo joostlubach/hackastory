@@ -32,8 +32,11 @@ angular.module 'hackastory-controllers'
 
   $scope.addBadge = (aspect, badge) ->
 
+    sound = new Audio("/assets/#{badge.name}.wav")
+
     $http.post("/stories/#{storyId}/#{aspect.aspect}/#{badge.name}")
       .then (response) ->
+        sound.play()
         badge.loading = true
         aspect.badge = badge.name
       .finally ->

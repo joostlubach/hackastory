@@ -26,7 +26,7 @@ class StatsController < ApplicationController
     end
 
     @data[:stories] = {
-      :broken => Story.where{popular_on_nos == false}.all.select(&:unlocked).count
+      :busted => Story.where{popular_on_nos == false}.all.select(&:unlocked).count
     }
   end
 

@@ -43,11 +43,3 @@ data.each do |row|
   story.popular_on_nos = row[:populair]
   story.save!
 end
-
-
-story = Story.first
-story.unlock :what, andre
-story.unlock :where, bart
-story.unlock :who, dries
-story.unlock :why, emiel
-story.save!

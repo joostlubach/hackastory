@@ -3,12 +3,9 @@
   "dependencies": {
     "lodash": "latest",
     "angular": "latest",
+    "nvd3": "latest",
     "angular-ui-router": "latest",
-    "angular-animate": "latest",
-    "ionic": "latest",
-    "bootstrap-sass-official": "latest"
-  },
-  "resolutions": {
-    "angular": "1.2.12"
+    "angular-nvd3": "latest",
+    "ionic": "latest"
   }
 }

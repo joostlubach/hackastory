@@ -54,16 +54,6 @@ button.back {
   background-size: 15px 14px;
 }
 
-button.read-article {
-  background: none;
-  color: white;
-  border: 2px solid white;
-  border-radius: 4px;
-  padding: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
 button.badge {
   @extend .reset;
 
@@ -91,4 +81,15 @@ button.badge {
     }
   }
 
+}
+
+
+button.read-article, button.logout, button.stats {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: 600;
 }

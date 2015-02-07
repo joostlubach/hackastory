@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require lodash/lodash
-//= require angular/angular
+//= require d3/d3
+//= require nvd3/nv.d3
+//= require angular/angular.min
 //= require angular-rails-templates
+//= require angular-nvd3/dist/angular-nvd3
 //= require ionic/release/js/ionic.bundle
 //= require_tree .

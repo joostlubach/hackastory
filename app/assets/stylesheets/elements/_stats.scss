@@ -1,0 +1,16 @@
+#stats-screen {
+  h2 {
+    padding: $large-space;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .chart {
+    width: 100%;
+    @include flex-column;
+
+    svg text { fill: white !important; }
+  }
+}

@@ -28,6 +28,9 @@ chef = User.create(name: 'Chef')
 fozzie = User.create(name: 'Fozzie')
 gonzo = User.create(name: 'Gonzo')
 pepe = User.create(name: 'Pepe')
+bigbird = User.create(name: 'Bigbird')
+kermit = User.create(name: 'Kermit')
+miss_piggy = User.create(name: 'Miss Piggy')
 
 data = SmarterCSV.process(Rails.root + 'db/seeds/stories.csv')
 data.each do |row|

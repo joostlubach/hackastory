@@ -31,3 +31,8 @@
   }
 
 }
+
+footer.logout {
+  @include flex-column;
+  padding: $large-space;
+}

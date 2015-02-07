@@ -2,7 +2,7 @@ angular.module('hackastory', [
   'ionic'
   'ui.router'
   'templates'
-  'ngAnimate'
+  'nvd3'
 
   'hackastory-controllers'
 ])
@@ -71,6 +71,11 @@ angular.module('hackastory', [
       url: '/story/:id'
       templateUrl: 'story.html',
       controller: 'StoryController'
+
+    .state 'stats',
+      url: '/stats'
+      templateUrl: 'stats.html',
+      controller: 'StatsController'
 
   $httpProvider.interceptors.push ($rootScope) ->
     'request':  (cfg) ->

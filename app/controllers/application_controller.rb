@@ -30,4 +30,11 @@ class ApplicationController < ActionController::Base
     render json: {:error => ex.message}, status: :bad_request
   end
 
+  def send_notification(notification)
+    require 'httparty'
+    HTTParty.post "http://10.10.150.134:1337/send",
+      headers: {'Content-Type' => 'application/json'},
+      body:    notification.to_json
+  end
+
 end

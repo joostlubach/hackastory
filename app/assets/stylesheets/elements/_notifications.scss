@@ -1,0 +1,45 @@
+#notifications {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+
+  li {
+    padding: $small-space;
+
+    @include flex-row;
+
+    .avatar {
+      @include flex-shrink(0);
+      margin-right: $large-space;
+    }
+    .callout {
+      position: relative;
+      display: block;
+      @include flex-grow(1);
+      padding: $small-space;
+
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -16px; top: 50%;
+        margin-top: -8px;
+        border: 8px solid transparent;
+      }
+
+      @each $aspect, $color in $colors {
+        &.aspect-#{$aspect} {
+          &::before {
+            border-right-color: $color;
+          }
+        }
+      }
+    }
+
+  }
+}

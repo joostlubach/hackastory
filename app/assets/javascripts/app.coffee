@@ -7,7 +7,7 @@ angular.module('hackastory', [
   'hackastory-controllers'
 ])
 
-.run ($window, $state, $rootScope) ->
+.run ($window, $state, $rootScope, $timeout) ->
 
   if !$window.document.cookie.match(/current_user_id=\d+/)
     $state.go 'login'
@@ -19,16 +19,33 @@ angular.module('hackastory', [
     name: 'so-sad',
     caption: 'So sad'
   }, {
-    name: 'pfff',
-    caption: 'Pfff!'
+    name: 'huh',
+    caption: 'Huh?'
   }, {
     name: 'omg',
     caption: 'OMG!'
   }]
 
   $rootScope.badgeCaption = (name) ->
+    return null unless name
+
     badge = _.find($rootScope.badges, (b) -> b.name == name)
     badge.caption
+
+  $rootScope.notifications = []
+
+  expireNotification = ->
+    $rootScope.notifications.shift()
+
+  WebSocket = window.WebSocket ? window.MozWebSocket
+  if WebSocket
+    connection = new WebSocket('ws://10.10.150.134:1337')
+
+    connection.onmessage = (message) ->
+      $rootScope.$apply ->
+        notification = JSON.parse(message.data);
+        $rootScope.notifications.push(notification)
+        $timeout expireNotification, 3000
 
 .config ($stateProvider, $urlRouterProvider, $httpProvider) ->
 

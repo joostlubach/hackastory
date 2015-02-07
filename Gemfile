@@ -16,6 +16,7 @@ gem 'angular-rails-templates'
 
 gem 'squeel'
 gem 'smarter_csv'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'

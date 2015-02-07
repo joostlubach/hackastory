@@ -4,6 +4,10 @@
     <header>
       <button class="back" ui-sref="stories">
       </button>
+
+      <figure class="aspect-icon">
+        <img ng-hide="story.unlocked_aspects[0].image_url" ng-src="/assets/{{ story.unlocked_aspects[0].aspect }}.png" />
+      </figure>
     </header>
 
     <div class="aspect-picture" ng-show="story.unlocked_aspects[0].image_url">

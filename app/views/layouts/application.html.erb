@@ -22,5 +22,18 @@
     <div class="spinner"></div>
   </div>
 
+  <div id="notifications">
+    <ul>
+      <li ng-repeat="notification in notifications">
+        <figure class="avatar" title="{{ notification.user.name }}">
+          <img ng-src="{{ notification.user.avatar }}" alt="{{ notification.user.name }}" />
+        </figure>
+        <span class="callout aspect-{{ notification.aspect.aspect }}" ng-show="notification.aspect.text">
+          {{ notification.aspect.text }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
 </body>
 </html>

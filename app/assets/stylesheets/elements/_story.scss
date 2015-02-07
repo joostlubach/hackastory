@@ -88,7 +88,6 @@ section.aspect {
 
     .aspect-picture {
       margin: #{-$small-space} #{$small-space} #{-$small-space} #{-$large-space};
-      opacity: 0.5;
       @include flex-grow(1);
       img {
         display: block;

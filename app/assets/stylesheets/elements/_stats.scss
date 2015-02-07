@@ -13,4 +13,14 @@
 
     svg text { fill: white !important; }
   }
+
+  .broken-stories {
+    padding: $large-space;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    span {
+      font-weight: 600;
+    }
+  }
 }

@@ -31,5 +31,10 @@ angular.module 'hackastory-controllers'
 
   $scope.data = null
 
-  $http.get('/stats').then (result) ->
-    $scope.data = result.data.data
+  $scope.reload = ->
+    $http.get('/stats')
+      .then (result) ->
+        $scope.data = result.data.data
+      .finally ->
+        $scope.$broadcast('scroll.refreshComplete')
+  $scope.reload()

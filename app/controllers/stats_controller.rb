@@ -24,6 +24,10 @@ class StatsController < ApplicationController
     @data[:badges] = badges_data.map do |key, value|
       { :key => key, :y => value }
     end
+
+    @data[:stories] = {
+      :broken => Story.where{popular_on_nos == false}.all.select(&:unlocked).count
+    }
   end
 
 end

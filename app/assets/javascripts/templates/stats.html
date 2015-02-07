@@ -1,9 +1,17 @@
 <ion-content scroll="true" id="stats-screen">
 
+  <ion-refresher on-refresh="reload()">
+  </ion-refresher>
+
   <header>
     <button class="back" ui-sref="stories">
     </button>
   </header>
+
+  <h2>Broken stories</h2>
+  <div class="broken-stories">
+    <span>{{ data.stories.broken }}</span> broken stories
+  </div>
 
   <h2>Unlocks</h2>
   <nvd3 options="options" data="data.unlocks" class="chart"></nvd3>

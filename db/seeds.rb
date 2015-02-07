@@ -40,6 +40,7 @@ data.each do |row|
   story.content = row[:story]
   story.image_url = row[:picture]
   story.happened_on = row[:date]
+  story.popular_on_nos = row[:populair]
   story.save!
 end
 

@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.string   "image_url"
     t.string   "source_url"
     t.date     "happened_on"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "popular_on_nos"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "unlocks", force: :cascade do |t|

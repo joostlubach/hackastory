@@ -12,7 +12,3 @@ default: &default
 development:
   <<: *default
   database: hackastory
-
-production:
-  <<: *default
-  database: hackastory

@@ -20,7 +20,8 @@ class StoriesController < ApplicationController
     notification = {
       :type   => :unlock,
       :user   => {
-        :name => current_user.name,
+        :id     => current_user.id,
+        :name   => current_user.name,
         :avatar => "/assets/users/#{current_user.name.downcase.dasherize}.jpg"
       }
     }

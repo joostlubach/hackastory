@@ -9,7 +9,10 @@ angular.module('hackastory', [
 
 .run ($window, $state, $rootScope, $timeout) ->
 
-  if !$window.document.cookie.match(/current_user_id=\d+/)
+  $rootScope.currentUserId = ->
+    parseInt($window.document.cookie.replace(/current_user_id=(\d+)/, '$1'), 10)
+
+  if !$rootScope.currentUserId()
     $state.go 'login'
 
   $rootScope.badges = [{
@@ -42,10 +45,12 @@ angular.module('hackastory', [
     connection = new WebSocket('ws://10.10.150.134:1337')
 
     connection.onmessage = (message) ->
-      $rootScope.$apply ->
-        notification = JSON.parse(message.data);
-        $rootScope.notifications.push(notification)
-        $timeout expireNotification, 3000
+      notification = JSON.parse(message.data)
+
+      if notification.user.id != $rootScope.currentUserId()
+        $rootScope.$apply ->
+          $rootScope.notifications.push(notification)
+          $timeout expireNotification, 3000
 
 .config ($stateProvider, $urlRouterProvider, $httpProvider) ->
 

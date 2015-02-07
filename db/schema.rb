@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150206134520) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "aspects", force: :cascade do |t|
     t.integer  "story_id"
     t.string   "aspect"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "aspects", ["story_id"], name: "index_aspects_on_story_id"
+  add_index "aspects", ["story_id"], name: "index_aspects_on_story_id", using: :btree
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "unlocks", ["aspect_id"], name: "index_unlocks_on_aspect_id"
-  add_index "unlocks", ["user_id"], name: "index_unlocks_on_user_id"
+  add_index "unlocks", ["aspect_id"], name: "index_unlocks_on_aspect_id", using: :btree
+  add_index "unlocks", ["user_id"], name: "index_unlocks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -52,4 +55,7 @@ ActiveRecord::Schema.define(version: 20150206134520) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "aspects", "stories"
+  add_foreign_key "unlocks", "aspects"
+  add_foreign_key "unlocks", "users"
 end

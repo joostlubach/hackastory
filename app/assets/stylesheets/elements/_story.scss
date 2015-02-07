@@ -33,11 +33,17 @@ section.aspect {
   }
 
   &:first-child {
-    @include align-items(flex-start);
+    display: block; // Undo flex.
     padding: $large-space;
+
+    header {
+      margin: -$large-space;
+      margin-bottom: $large-space;
+    }
 
     min-height: 80px;
     h2 {
+      text-align: center;
       font-size: 24px;
       font-weight: 600;
     }
@@ -100,13 +106,31 @@ article.story.unlocked-by-me section.unlock {
   .content {
     opacity: 0.4;
   }
-  button {
+  button.aspect {
     background-color: #777;
   }
 }
 
 .unlocked-story {
   @include flex-column(stretch);
+
+  header {
+    @include flex-row;
+    padding: $small-space $large-space 0 $small-space;
+    button { display: block; }
+
+    .stretch {
+      @include flex-grow(1);
+    }
+
+    .unlockers {
+      @include flex-row;
+      @include flex-direction(row-reverse);
+      .avatar:not(:first-child) {
+        margin-right: -4px;
+      }
+    }
+  }
 
   color: white;
   @extend .html;

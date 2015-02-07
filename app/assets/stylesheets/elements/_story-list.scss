@@ -1,14 +1,14 @@
 .story-list {
   padding: $large-space;
 
-  li {
+  .story-item {
     &:not(:last-child) {
       margin-bottom: $large-space;
     }
     cursor: pointer;
   }
 
-  li.unlocked {
+  .story-item.unlocked {
     position: relative;
     background: black;
 

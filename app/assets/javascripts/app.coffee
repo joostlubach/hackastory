@@ -1,4 +1,5 @@
 angular.module('hackastory', [
+  'ionic'
   'ui.router'
   'templates'
   'ngAnimate'
@@ -11,7 +12,7 @@ angular.module('hackastory', [
   if !$window.document.cookie.match(/current_user_id=\d+/)
     $state.go 'login'
 
-.config ($stateProvider, $urlRouterProvider) ->
+.config ($stateProvider, $urlRouterProvider, $httpProvider) ->
 
   $urlRouterProvider.otherwise '/stories'
 
@@ -21,14 +22,20 @@ angular.module('hackastory', [
       templateUrl: 'login.html',
       controller: 'LoginController'
 
-  $stateProvider
     .state 'stories',
       url: '/stories'
       templateUrl: 'stories.html',
       controller: 'StoriesController'
 
-  $stateProvider
     .state 'story',
       url: '/story/:id'
       templateUrl: 'story.html',
       controller: 'StoryController'
+
+  $httpProvider.interceptors.push ($rootScope) ->
+    'request':  (cfg) ->
+      $rootScope.loading = true
+      cfg
+    'response': (cfg) ->
+      $rootScope.loading = false
+      cfg

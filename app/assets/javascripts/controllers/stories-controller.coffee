@@ -2,8 +2,14 @@ angular.module 'hackastory-controllers'
 
 .controller 'StoriesController', ($scope, $http) ->
 
-  $http.get('/stories').then (response) ->
-    $scope.stories = response.data.stories
+  $scope.reload = ->
+    $http.get('/stories')
+      .then (response) ->
+        $scope.stories = response.data.stories
+      .finally ->
+        $scope.$broadcast('scroll.refreshComplete')
+
+  $scope.reload()
 
   $scope.templateFor = (story) ->
     if story.unlocked

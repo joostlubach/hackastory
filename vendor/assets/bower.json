@@ -5,6 +5,10 @@
     "angular": "latest",
     "angular-ui-router": "latest",
     "angular-animate": "latest",
+    "ionic": "latest",
     "bootstrap-sass-official": "latest"
+  },
+  "resolutions": {
+    "angular": "1.2.12"
   }
 }

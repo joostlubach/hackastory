@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require lodash/lodash
 //= require angular/angular
-//= require angular-animate/angular-animate
-//= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
+//= require ionic/release/js/ionic.bundle
 //= require_tree .

@@ -1,5 +1,12 @@
-<ul class="story-list">
+<ion-content scroll="true">
+  <ion-refresher on-refresh="reload()">
+  </ion-refresher>
 
-  <li class="story aspect-{{ story.unlocked_aspects[0].aspect }}" ng-repeat="story in stories" ui-sref="story({id: story.id})" ng-class="{'unlocked': story.unlocked}" ng-include="templateFor(story)"></li>
+  <ion-list class="story-list">
 
-</ul>
+    <ion-item class="story-item aspect-{{ story.unlocked_aspects[0].aspect }}" ng-repeat="story in stories" ng-class="{'unlocked': story.unlocked}" ui-sref="story({id: story.id})">
+      <div ng-include="templateFor(story)"></div>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

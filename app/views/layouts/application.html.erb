@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html ng-app="hackastory">
+<html>
 <head>
   <title>Hackastory</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="apple-touch-icon" href="<%= image_path('hackastory.png') %>">
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="hackastory">
 
-<%= yield %>
+  <%= yield %>
+
+  <div id="loading" ng-show="loading">
+    <div class="spinner"></div>
+  </div>
 
 </body>
 </html>

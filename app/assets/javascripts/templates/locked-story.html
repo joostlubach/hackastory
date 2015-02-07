@@ -1,5 +1,16 @@
 <div class="locked-story">
-  <section ng-repeat="aspect in story.unlocked_aspects" class="aspect aspect-{{aspect.aspect}}">
+
+  <section class="aspect aspect-{{story.unlocked_aspects[0].aspect}}">
+    <header>
+      <button class="back" ui-sref="stories">
+      </button>
+    </header>
+
+    <h2>{{ story.unlocked_aspects[0].text }}</h2>
+  </section>
+
+  <section ng-repeat="aspect in story.unlocked_aspects.slice(1)" class="aspect aspect-{{aspect.aspect}}">
+
     <h2>{{ aspect.text }}</h2>
 
     <figure class="unlocker" ng-show="aspect.unlocker" title="Unlocked by {{ aspect.unlocker.name }}">

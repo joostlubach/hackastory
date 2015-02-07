@@ -1,4 +1,18 @@
 <div class="unlocked-story">
+
+  <header>
+    <button class="back" ui-sref="stories">
+    </button>
+
+    <div class="stretch"></div>
+
+    <div class="unlockers">
+      <figure class="unlocker avatar" ng-repeat="aspect in story.unlocked_aspects.slice(1)" title="{{ aspect.unlocker.name }} unlocked {{ aspect.aspect }}">
+        <img ng-src="{{ aspect.unlocker.avatar }}" alt="{{ aspect.unlocker.name }}" />
+      </figure>
+    </div>
+  </header>
+
   <figure class="picture">
     <img ng-src="{{ story.image_url }}" alt="{{ story.title }}"/>
   </figure>

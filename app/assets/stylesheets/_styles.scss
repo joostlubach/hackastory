@@ -13,6 +13,11 @@ body {
   background: #333;
 }
 
+.avatar {
+  width: 24px; height: 24px;
+  img { border-radius: 100%; }
+}
+
 .html {
 
   h1 {
@@ -33,6 +38,11 @@ body {
   }
 
 }
+
+// .ionic-refresher-content .icon-refreshing {
+//   // width: 32px; height: 32px;
+//   background: image-url('loader.png');
+// }
 
 .spinner {
   font-size: 3px;

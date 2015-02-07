@@ -24,7 +24,7 @@
 
   <div id="notifications">
     <ul>
-      <li ng-repeat="notification in notifications">
+      <li ng-repeat="notification in notifications" ui-sref="story({id: notification.story.id})">
         <figure class="avatar" title="{{ notification.user.name }}">
           <img ng-src="{{ notification.user.avatar }}" alt="{{ notification.user.name }}" />
         </figure>

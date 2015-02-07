@@ -23,6 +23,11 @@ niall = User.create(name: 'Niall')
 nienke = User.create(name: 'Nienke')
 sebastiaan = User.create(name: 'Sebastiaan')
 tim = User.create(name: 'Tim')
+beaker = User.create(name: 'Beaker')
+chef = User.create(name: 'Chef')
+fozzie = User.create(name: 'Fozzie')
+gonzo = User.create(name: 'Gonzo')
+pepe = User.create(name: 'Pepe')
 
 data = SmarterCSV.process(Rails.root + 'db/seeds/stories.csv')
 data.each do |row|

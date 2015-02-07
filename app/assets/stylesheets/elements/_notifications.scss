@@ -8,6 +8,8 @@
   li {
     padding: $small-space;
 
+    cursor: pointer;
+
     @include flex-row;
 
     .avatar {

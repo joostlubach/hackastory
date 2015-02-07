@@ -23,6 +23,9 @@ class StoriesController < ApplicationController
         :id     => current_user.id,
         :name   => current_user.name,
         :avatar => "/assets/users/#{current_user.name.downcase.dasherize}.jpg"
+      },
+      :story  => {
+        :id     => @aspect.story.id
       }
     }
 

@@ -5,10 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite
+  database: newsbricks
+  username: root
+  password: root

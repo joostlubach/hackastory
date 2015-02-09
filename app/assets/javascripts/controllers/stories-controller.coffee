@@ -1,4 +1,4 @@
-angular.module 'hackastory-controllers'
+angular.module 'newsbricks-controllers'
 
 .controller 'StoriesController', ($scope, $http) ->
 

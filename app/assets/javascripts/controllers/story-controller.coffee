@@ -1,6 +1,6 @@
-angular.module 'hackastory-controllers'
+angular.module 'newsbricks-controllers'
 
-.controller 'StoryController', ($scope, $http, $stateParams) ->
+.controller 'StoryController', ($scope, $http, $stateParams, Sounds) ->
 
   storyId = $stateParams.id
 
@@ -32,11 +32,9 @@ angular.module 'hackastory-controllers'
 
   $scope.addBadge = (aspect, badge) ->
 
-    sound = new Audio("/assets/#{badge.name}.wav")
-
     $http.post("/stories/#{storyId}/#{aspect.aspect}/#{badge.name}")
       .then (response) ->
-        sound.play()
+        Sounds[badge.name].play()
         badge.loading = true
         aspect.badge = badge.name
       .finally ->

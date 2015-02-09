@@ -42,7 +42,7 @@ class StoriesController < ApplicationController
       }
     end
 
-    send_notification notification
+    # send_notification notification
   end
 
   def create_badge

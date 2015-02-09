@@ -1,10 +1,11 @@
-angular.module('hackastory', [
+angular.module('newsbricks', [
   'ionic'
   'ui.router'
   'templates'
   'nvd3'
 
-  'hackastory-controllers'
+  'newsbricks-controllers'
+  'newsbricks-assets'
 ])
 
 .run ($window, $state, $rootScope, $timeout) ->
@@ -40,17 +41,17 @@ angular.module('hackastory', [
   expireNotification = ->
     $rootScope.notifications.shift()
 
-  WebSocket = window.WebSocket ? window.MozWebSocket
-  if WebSocket
-    connection = new WebSocket('ws://10.10.150.134:1337')
+  # WebSocket = window.WebSocket ? window.MozWebSocket
+  # if WebSocket
+  #   connection = new WebSocket('ws://10.10.150.134:1337')
 
-    connection.onmessage = (message) ->
-      notification = JSON.parse(message.data)
+  #   connection.onmessage = (message) ->
+  #     notification = JSON.parse(message.data)
 
-      if notification.user.id != $rootScope.currentUserId()
-        $rootScope.$apply ->
-          $rootScope.notifications.push(notification)
-          $timeout expireNotification, 3000
+  #     if notification.user.id != $rootScope.currentUserId()
+  #       $rootScope.$apply ->
+  #         $rootScope.notifications.push(notification)
+  #         $timeout expireNotification, 3000
 
 .config ($stateProvider, $urlRouterProvider, $httpProvider) ->
 

@@ -1,0 +1,28 @@
+angular.module 'newsbricks-assets', []
+
+.factory 'Sounds', ($window) ->
+  'meh':    new $window.Audio(<%= asset_path("meh.wav").to_json %>)
+  'so-sad': new $window.Audio(<%= asset_path("so-sad.wav").to_json %>)
+  'huh':    new $window.Audio(<%= asset_path("huh.wav").to_json %>)
+  'omg':    new $window.Audio(<%= asset_path("omg.wav").to_json %>)
+
+.factory 'AspectIcons', () ->
+  'what':   <%= asset_path("what.png").to_json %>
+  'where':  <%= asset_path("where.png").to_json %>
+  'who':    <%= asset_path("who.png").to_json %>
+  'why':    <%= asset_path("why.png").to_json %>
+  'pic':    <%= asset_path("pic.png").to_json %>
+
+.factory 'BadgeImages', () ->
+  'meh':    <%= asset_path("meh.png").to_json %>
+  'so-sad': <%= asset_path("so-sad.png").to_json %>
+  'huh':    <%= asset_path("huh.png").to_json %>
+  'omg':    <%= asset_path("omg.png").to_json %>
+
+.run ($rootScope, AspectIcons, BadgeImages) ->
+
+  $rootScope.aspectIcon = (aspect) ->
+    AspectIcons[aspect]
+
+  $rootScope.badgeImage = (badge) ->
+    BadgeImages[badge]

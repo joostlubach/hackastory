@@ -19,4 +19,8 @@
 //= require angular-rails-templates
 //= require angular-nvd3/dist/angular-nvd3
 //= require ionic/release/js/ionic.bundle
-//= require_tree .
+
+//= require_tree ./templates
+//= require_tree ./controllers
+//= require_tree ./utils
+//= require app
